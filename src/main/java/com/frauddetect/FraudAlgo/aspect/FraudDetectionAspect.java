@@ -1,5 +1,4 @@
 package com.frauddetect.FraudAlgo.aspect;
-
 import com.frauddetect.FraudAlgo.dto.TransactionDTO;
 import com.frauddetect.FraudAlgo.entity.Transaction;
 import com.frauddetect.FraudAlgo.mapper.TransactionMapper;
@@ -9,7 +8,6 @@ import com.frauddetect.FraudAlgo.strategy.FraudDetectionContext;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
-
 import java.util.List;
 
 @Aspect
@@ -17,7 +15,7 @@ import java.util.List;
 public class FraudDetectionAspect {
 
     private final TransactionService transactionService;
-    private final TransactionMapper transactionMapper; // Add the mapper here
+    private final TransactionMapper transactionMapper;
     private final FraudDetectionContext fraudDetectionContext;
     private final List<FraudListener> fraudListeners;
 
