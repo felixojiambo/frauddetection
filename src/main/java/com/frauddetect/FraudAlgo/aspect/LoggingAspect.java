@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 public class LoggingAspect {
 
     // Pointcut to match all methods in service packages
-    @Pointcut("execution(* com.frauddetect.*.*(..))")
+    @Pointcut("execution(* com.frauddetect.FraudAlgo.service*.*(..))")
     public void serviceLayer() {}
 
     // Before advice
