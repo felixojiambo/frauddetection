@@ -1,18 +1,22 @@
 package com.frauddetect.FraudAlgo.aspect;
+
 import com.frauddetect.FraudAlgo.dto.UserDTO;
 import com.frauddetect.FraudAlgo.exception.UnauthorizedException;
 import com.frauddetect.FraudAlgo.service.UserService;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.*;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Aspect
 @Component
 public class SecurityAspect {
 
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
+
+    // Constructor injection for UserService
+    public SecurityAspect(UserService userService) {
+        this.userService = userService;
+    }
 
     // Pointcut for processing transactions
     @Pointcut("execution(* com.frauddetect.FraudAlgo.service.TransactionService.processTransaction(..))")
